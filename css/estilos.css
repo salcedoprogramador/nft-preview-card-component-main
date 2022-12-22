@@ -2,13 +2,11 @@
   /* colores */
   --Soft-blue: hsl(215, 51%, 70%);
   --Cyan: hsl(178, 100%, 50%);
-
   --Very-dark-blue-main-BG: hsl(217, 54%, 11%);
   --Very-dark-blue-card-BG: hsl(216, 50%, 16%);
   --Very-dark-blue-line: hsl(215, 32%, 27%);
   --White: hsl(0, 0%, 100%);
 }
-/* font-family: 'Outfit', sans-serif; */
 
 body {
   background-color: var(--Very-dark-blue-main-BG);
@@ -22,7 +20,6 @@ body {
 .card__container {
   width: 100%;
   max-width: 282px;
-  height: 500px;
   background-color: var(--Very-dark-blue-card-BG);
   overflow: hidden;
   margin: 1em;
@@ -30,14 +27,31 @@ body {
   border-radius: 1.3em;
   box-shadow: 8px 30px 10px hsl(217, 54%, 11%);
 }
+.card__images {
+  position: relative;
+}
 .card__img {
-  width: 99%;
+  width: 100%;
+  height: 100%;
   border-radius: 1em;
-  display: block;
-  margin: 0 auto;
+}
+.card__images div {
+  position: absolute;
+  background-color: hsl(178, 100%, 50%, 60%);
+  width: 100%;
+  height: 99%;
+  top: 0;
+  border-radius: 1em;
+  opacity: 0;
+}
+.card__images div img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .card__title {
-  margin-top: 2.8em;
+  margin-top: 2.2em;
   margin-left: 0.2em;
 }
 .title {
@@ -51,10 +65,13 @@ body {
   margin: 0;
 }
 .card__price {
+  margin-top: 12px;
   width: 100%;
+  height: 15px;
   justify-content: space-between;
   display: flex;
   padding: 0.1em;
+  padding-bottom: 2em;
   border-bottom: 0.1em solid var(--Very-dark-blue-line);
 }
 .eth {
@@ -62,20 +79,103 @@ body {
   background-image: url(/images/icon-ethereum.svg);
   background-repeat: no-repeat;
   background-position: 0 center;
+  background-size: contain;
 }
 .eth p {
   font-size: 1.5rem;
   padding-left: 1.2em;
   color: var(--Cyan);
+  margin: 0;
 }
 .time {
   background-image: url(/images/icon-clock.svg);
   background-repeat: no-repeat;
   background-position: 0 center;
+  background-size: contain;
 }
 .time p {
   font-size: 1.5rem;
   color: var(--Soft-blue);
   padding-right: 0.2em;
   padding-left: 1.5em;
+  margin: 0;
+}
+.card__creator {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.card__creator img {
+  background-color: aliceblue;
+  border-radius: 50%;
+  border: 0.5px solid white;
+  width: 3.1em;
+  margin-top: 1.7em;
+  margin-left: 0.2em;
+}
+.card__creator p {
+  padding-top: 0.5em;
+  font-size: 1.6rem;
+  position: absolute;
+  text-align: center;
+  margin-left: 3.1em;
+  color: var(--Soft-blue);
+}
+.card__creator span {
+  color: var(--White);
+}
+@media (hover: hover) {
+  .card__creator span:hover,
+  .title:hover {
+    color: var(--Cyan);
+    cursor: pointer;
+  }
+  .card__images :hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+}
+@media (min-width: 600px) {
+  .card__container {
+    width: 100%;
+    max-width: 223px;
+    padding: 1.9em;
+  }
+  .card__title {
+    margin: 0;
+    margin-top: 20px;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 1.3rem;
+  }
+  .eth p,
+  .time p {
+    font-size: 1.2em;
+    margin: 0px;
+  }
+  .eth,
+  .time {
+    height: 1.4em;
+    background-position: 0px 0px;
+  }
+  .card__price {
+    margin-top: 25px;
+    padding-bottom: 18px;
+  }
+  .card__creator {
+    padding-top: 10px;
+  }
+  .card__creator img {
+    width: 2.4em;
+    margin-top: 0.2em;
+    margin-left: 0px;
+  }
+  .card__creator p {
+    font-size: 1.2rem;
+    margin: 0;
+    margin-left: 35px;
+  }
 }
